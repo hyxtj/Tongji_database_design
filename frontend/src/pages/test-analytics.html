@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics 导入测试</title>
+</head>
+<body>
+  <h1>正在测试导入...</h1>
+  <div id="result"></div>
+  
+  <script type="module">
+    try {
+      console.log('开始导入 analytics.js...')
+      const { getRoadRanking, getPeakHoursAnalysis, getHighImpactEvents } = await import('/src/utils/analytics.js')
+      console.log('✅ 导入成功')
+      document.getElementById('result').innerHTML = '✅ 导入成功'
+    } catch (e) {
+      console.error('❌ 导入失败:', e)
+      document.getElementById('result').innerHTML = '❌ 导入失败: ' + e.message
+    }
+  </script>
+</body>
+</html>
